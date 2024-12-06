@@ -176,7 +176,7 @@ send_udp_packet_when_it_hits_size_limit_test() ->
 
     % Send the remaining metrics when the current batch window ends
     {ok, State6} = exometer_info({exometer_influxdb, send}, State5),
-    {ok, {_Address, _Port, Packet2}} = gen_udp:recv(ServerSocket, 0, 9999),
+    {ok, {_Address1, _Port1, Packet2}} = gen_udp:recv(ServerSocket, 0, 9999),
 
     ?assertEqual("flights,type=arrival count=1i \n"
                  "flights,type=arrival count=1i \n", Packet2),
